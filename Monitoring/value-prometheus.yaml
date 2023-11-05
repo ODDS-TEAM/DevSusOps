@@ -1,0 +1,8 @@
+persistentVolume:
+  enabled: true
+  storageClass: csi-disk
+
+server:
+  persistentVolume:
+    enabled: true
+    storageClass: csi-disk

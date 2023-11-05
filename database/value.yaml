@@ -1,0 +1,7 @@
+global:
+  storageClass: csi-disk
+  postgresql:
+    auth:
+      username: psqlusr
+      password: psqlpassword
+      database: shopdb

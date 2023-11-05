@@ -1,0 +1,24 @@
+enableHttpOpenTelemetryCollector: true
+
+environmentVariables:
+  COLLECTOR_OTLP_ENABLED: true
+  MEMORY_MAX_TRACES: 100000
+  SPAN_STORAGE_TYPE: badger
+  BADGER_EPHEMERAL: false
+  BADGER_DIRECTORY_VALUE: /badger/data
+  BADGER_DIRECTORY_KEY: /badger/key
+
+volume:
+  enabled: true
+  className: csi-disk
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+  hosts:
+    - host: tracing-store.odd.works
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
